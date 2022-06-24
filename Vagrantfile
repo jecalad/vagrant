@@ -21,6 +21,9 @@ Vagrant.configure("2") do |config|
      systemctl enable docker
      systemctl start docker
      systemctl status docker
-     docker run -d -p 80:80 nginx
+     apt-get install git
+     git clone https://github.com/jecalad/vagrant.git && cd vagrant
+     docker build -t devops_vagrant .
+     docker run -d -p 80:80 devops_vagrant
   SHELL
 end
